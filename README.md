@@ -32,4 +32,9 @@ This project implements a digital vending machine using **Verilog HDL**. The des
 ---
 
 ## Files included
-
+1. vendingmachine.v  
+2. cash_checker.v
+3. inventory_manager.v
+4. product_cost_calculator.v
+5. vendingmachine_tb.v
+6. vending_machine_constraints.xdc
