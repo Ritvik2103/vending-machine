@@ -1,0 +1,614 @@
+// Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+// Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+// --------------------------------------------------------------------------------
+// Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+// Date        : Sat Dec  7 15:18:00 2024
+// Host        : LAPTOP-3U4GRAPR running 64-bit major release  (build 9200)
+// Command     : write_verilog vending_machine
+// Design      : vendingmachine
+// Purpose     : This is a Verilog netlist of the current design or from a specific cell of the design. The output is an
+//               IEEE 1364-2001 compliant Verilog HDL file that contains netlist information obtained from the input
+//               design files.
+// Device      : xc7a15tcsg324-3
+// --------------------------------------------------------------------------------
+`timescale 1 ps / 1 ps
+
+module inventory_manager
+   (sufficient_cash,
+    Q,
+    \prod2_count_reg[3]_0 ,
+    \prod3_count_reg[3]_0 ,
+    update_inventory_OBUF,
+    product_sel_IBUF,
+    cash_IBUF,
+    CLK,
+    AR);
+  output sufficient_cash;
+  output [3:0]Q;
+  output [3:0]\prod2_count_reg[3]_0 ;
+  output [3:0]\prod3_count_reg[3]_0 ;
+  output update_inventory_OBUF;
+  input [1:0]product_sel_IBUF;
+  input [4:0]cash_IBUF;
+  input CLK;
+  input [0:0]AR;
+
+  wire [0:0]AR;
+  wire CLK;
+  wire [3:0]Q;
+  wire [4:0]cash_IBUF;
+  wire dispense_OBUF_inst_i_3_n_0;
+  wire dispense_OBUF_inst_i_4_n_0;
+  wire dispense_OBUF_inst_i_5_n_0;
+  wire dispense_OBUF_inst_i_6_n_0;
+  wire dispense_OBUF_inst_i_7_n_0;
+  wire [0:0]prod1_count0;
+  wire \prod1_count[1]_i_1_n_0 ;
+  wire \prod1_count[2]_i_1_n_0 ;
+  wire \prod1_count[3]_i_1_n_0 ;
+  wire \prod1_count[3]_i_2_n_0 ;
+  wire [0:0]prod2_count0;
+  wire \prod2_count[1]_i_1_n_0 ;
+  wire \prod2_count[2]_i_1_n_0 ;
+  wire \prod2_count[3]_i_1_n_0 ;
+  wire \prod2_count[3]_i_2_n_0 ;
+  wire [3:0]\prod2_count_reg[3]_0 ;
+  wire [0:0]prod3_count0;
+  wire \prod3_count[1]_i_1_n_0 ;
+  wire \prod3_count[2]_i_1_n_0 ;
+  wire \prod3_count[3]_i_1_n_0 ;
+  wire \prod3_count[3]_i_2_n_0 ;
+  wire [3:0]\prod3_count_reg[3]_0 ;
+  wire [1:0]product_sel_IBUF;
+  wire sufficient_cash;
+  wire update_inventory_OBUF;
+
+  LUT3 #(
+    .INIT(8'hA8)) 
+    dispense_OBUF_inst_i_1
+       (.I0(sufficient_cash),
+        .I1(dispense_OBUF_inst_i_3_n_0),
+        .I2(dispense_OBUF_inst_i_4_n_0),
+        .O(update_inventory_OBUF));
+  LUT4 #(
+    .INIT(16'hFBA2)) 
+    dispense_OBUF_inst_i_2
+       (.I0(dispense_OBUF_inst_i_5_n_0),
+        .I1(product_sel_IBUF[1]),
+        .I2(product_sel_IBUF[0]),
+        .I3(cash_IBUF[4]),
+        .O(sufficient_cash));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFE200E2)) 
+    dispense_OBUF_inst_i_3
+       (.I0(Q[3]),
+        .I1(product_sel_IBUF[0]),
+        .I2(\prod2_count_reg[3]_0 [3]),
+        .I3(product_sel_IBUF[1]),
+        .I4(\prod3_count_reg[3]_0 [3]),
+        .I5(dispense_OBUF_inst_i_6_n_0),
+        .O(dispense_OBUF_inst_i_3_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFE200E2)) 
+    dispense_OBUF_inst_i_4
+       (.I0(Q[1]),
+        .I1(product_sel_IBUF[0]),
+        .I2(\prod2_count_reg[3]_0 [1]),
+        .I3(product_sel_IBUF[1]),
+        .I4(\prod3_count_reg[3]_0 [1]),
+        .I5(dispense_OBUF_inst_i_7_n_0),
+        .O(dispense_OBUF_inst_i_4_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFCFFFFF000E0)) 
+    dispense_OBUF_inst_i_5
+       (.I0(cash_IBUF[0]),
+        .I1(cash_IBUF[1]),
+        .I2(cash_IBUF[2]),
+        .I3(product_sel_IBUF[0]),
+        .I4(product_sel_IBUF[1]),
+        .I5(cash_IBUF[3]),
+        .O(dispense_OBUF_inst_i_5_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'hB8BBB888)) 
+    dispense_OBUF_inst_i_6
+       (.I0(\prod3_count_reg[3]_0 [0]),
+        .I1(product_sel_IBUF[1]),
+        .I2(\prod2_count_reg[3]_0 [0]),
+        .I3(product_sel_IBUF[0]),
+        .I4(Q[0]),
+        .O(dispense_OBUF_inst_i_6_n_0));
+  LUT5 #(
+    .INIT(32'hB8BBB888)) 
+    dispense_OBUF_inst_i_7
+       (.I0(\prod3_count_reg[3]_0 [2]),
+        .I1(product_sel_IBUF[1]),
+        .I2(\prod2_count_reg[3]_0 [2]),
+        .I3(product_sel_IBUF[0]),
+        .I4(Q[2]),
+        .O(dispense_OBUF_inst_i_7_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT1 #(
+    .INIT(2'h1)) 
+    \prod1_count[0]_i_1 
+       (.I0(Q[0]),
+        .O(prod1_count0));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
+    \prod1_count[1]_i_1 
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .O(\prod1_count[1]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT3 #(
+    .INIT(8'hE1)) 
+    \prod1_count[2]_i_1 
+       (.I0(Q[1]),
+        .I1(Q[0]),
+        .I2(Q[2]),
+        .O(\prod1_count[2]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'h000000E0)) 
+    \prod1_count[3]_i_1 
+       (.I0(dispense_OBUF_inst_i_4_n_0),
+        .I1(dispense_OBUF_inst_i_3_n_0),
+        .I2(sufficient_cash),
+        .I3(product_sel_IBUF[1]),
+        .I4(product_sel_IBUF[0]),
+        .O(\prod1_count[3]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT4 #(
+    .INIT(16'hFE01)) 
+    \prod1_count[3]_i_2 
+       (.I0(Q[2]),
+        .I1(Q[0]),
+        .I2(Q[1]),
+        .I3(Q[3]),
+        .O(\prod1_count[3]_i_2_n_0 ));
+  FDCE #(
+    .INIT(1'b0)) 
+    \prod1_count_reg[0] 
+       (.C(CLK),
+        .CE(\prod1_count[3]_i_1_n_0 ),
+        .CLR(AR),
+        .D(prod1_count0),
+        .Q(Q[0]));
+  FDPE #(
+    .INIT(1'b1)) 
+    \prod1_count_reg[1] 
+       (.C(CLK),
+        .CE(\prod1_count[3]_i_1_n_0 ),
+        .D(\prod1_count[1]_i_1_n_0 ),
+        .PRE(AR),
+        .Q(Q[1]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \prod1_count_reg[2] 
+       (.C(CLK),
+        .CE(\prod1_count[3]_i_1_n_0 ),
+        .CLR(AR),
+        .D(\prod1_count[2]_i_1_n_0 ),
+        .Q(Q[2]));
+  FDPE #(
+    .INIT(1'b1)) 
+    \prod1_count_reg[3] 
+       (.C(CLK),
+        .CE(\prod1_count[3]_i_1_n_0 ),
+        .D(\prod1_count[3]_i_2_n_0 ),
+        .PRE(AR),
+        .Q(Q[3]));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT1 #(
+    .INIT(2'h1)) 
+    \prod2_count[0]_i_1 
+       (.I0(\prod2_count_reg[3]_0 [0]),
+        .O(prod2_count0));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
+    \prod2_count[1]_i_1 
+       (.I0(\prod2_count_reg[3]_0 [0]),
+        .I1(\prod2_count_reg[3]_0 [1]),
+        .O(\prod2_count[1]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT3 #(
+    .INIT(8'hE1)) 
+    \prod2_count[2]_i_1 
+       (.I0(\prod2_count_reg[3]_0 [1]),
+        .I1(\prod2_count_reg[3]_0 [0]),
+        .I2(\prod2_count_reg[3]_0 [2]),
+        .O(\prod2_count[2]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'h00E00000)) 
+    \prod2_count[3]_i_1 
+       (.I0(dispense_OBUF_inst_i_4_n_0),
+        .I1(dispense_OBUF_inst_i_3_n_0),
+        .I2(sufficient_cash),
+        .I3(product_sel_IBUF[1]),
+        .I4(product_sel_IBUF[0]),
+        .O(\prod2_count[3]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT4 #(
+    .INIT(16'hFE01)) 
+    \prod2_count[3]_i_2 
+       (.I0(\prod2_count_reg[3]_0 [2]),
+        .I1(\prod2_count_reg[3]_0 [0]),
+        .I2(\prod2_count_reg[3]_0 [1]),
+        .I3(\prod2_count_reg[3]_0 [3]),
+        .O(\prod2_count[3]_i_2_n_0 ));
+  FDCE #(
+    .INIT(1'b0)) 
+    \prod2_count_reg[0] 
+       (.C(CLK),
+        .CE(\prod2_count[3]_i_1_n_0 ),
+        .CLR(AR),
+        .D(prod2_count0),
+        .Q(\prod2_count_reg[3]_0 [0]));
+  FDPE #(
+    .INIT(1'b1)) 
+    \prod2_count_reg[1] 
+       (.C(CLK),
+        .CE(\prod2_count[3]_i_1_n_0 ),
+        .D(\prod2_count[1]_i_1_n_0 ),
+        .PRE(AR),
+        .Q(\prod2_count_reg[3]_0 [1]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \prod2_count_reg[2] 
+       (.C(CLK),
+        .CE(\prod2_count[3]_i_1_n_0 ),
+        .CLR(AR),
+        .D(\prod2_count[2]_i_1_n_0 ),
+        .Q(\prod2_count_reg[3]_0 [2]));
+  FDPE #(
+    .INIT(1'b1)) 
+    \prod2_count_reg[3] 
+       (.C(CLK),
+        .CE(\prod2_count[3]_i_1_n_0 ),
+        .D(\prod2_count[3]_i_2_n_0 ),
+        .PRE(AR),
+        .Q(\prod2_count_reg[3]_0 [3]));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT1 #(
+    .INIT(2'h1)) 
+    \prod3_count[0]_i_1 
+       (.I0(\prod3_count_reg[3]_0 [0]),
+        .O(prod3_count0));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
+    \prod3_count[1]_i_1 
+       (.I0(\prod3_count_reg[3]_0 [0]),
+        .I1(\prod3_count_reg[3]_0 [1]),
+        .O(\prod3_count[1]_i_1_n_0 ));
+  LUT3 #(
+    .INIT(8'hE1)) 
+    \prod3_count[2]_i_1 
+       (.I0(\prod3_count_reg[3]_0 [1]),
+        .I1(\prod3_count_reg[3]_0 [0]),
+        .I2(\prod3_count_reg[3]_0 [2]),
+        .O(\prod3_count[2]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'h00E00000)) 
+    \prod3_count[3]_i_1 
+       (.I0(dispense_OBUF_inst_i_4_n_0),
+        .I1(dispense_OBUF_inst_i_3_n_0),
+        .I2(sufficient_cash),
+        .I3(product_sel_IBUF[0]),
+        .I4(product_sel_IBUF[1]),
+        .O(\prod3_count[3]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT4 #(
+    .INIT(16'hFE01)) 
+    \prod3_count[3]_i_2 
+       (.I0(\prod3_count_reg[3]_0 [2]),
+        .I1(\prod3_count_reg[3]_0 [0]),
+        .I2(\prod3_count_reg[3]_0 [1]),
+        .I3(\prod3_count_reg[3]_0 [3]),
+        .O(\prod3_count[3]_i_2_n_0 ));
+  FDCE #(
+    .INIT(1'b0)) 
+    \prod3_count_reg[0] 
+       (.C(CLK),
+        .CE(\prod3_count[3]_i_1_n_0 ),
+        .CLR(AR),
+        .D(prod3_count0),
+        .Q(\prod3_count_reg[3]_0 [0]));
+  FDPE #(
+    .INIT(1'b1)) 
+    \prod3_count_reg[1] 
+       (.C(CLK),
+        .CE(\prod3_count[3]_i_1_n_0 ),
+        .D(\prod3_count[1]_i_1_n_0 ),
+        .PRE(AR),
+        .Q(\prod3_count_reg[3]_0 [1]));
+  FDCE #(
+    .INIT(1'b0)) 
+    \prod3_count_reg[2] 
+       (.C(CLK),
+        .CE(\prod3_count[3]_i_1_n_0 ),
+        .CLR(AR),
+        .D(\prod3_count[2]_i_1_n_0 ),
+        .Q(\prod3_count_reg[3]_0 [2]));
+  FDPE #(
+    .INIT(1'b1)) 
+    \prod3_count_reg[3] 
+       (.C(CLK),
+        .CE(\prod3_count[3]_i_1_n_0 ),
+        .D(\prod3_count[3]_i_2_n_0 ),
+        .PRE(AR),
+        .Q(\prod3_count_reg[3]_0 [3]));
+endmodule
+
+(* STRUCTURAL_NETLIST = "yes" *)
+module vendingmachine
+   (clk,
+    rst,
+    product_sel,
+    cash,
+    dispense,
+    product_cost,
+    balance,
+    prod1_count,
+    prod2_count,
+    prod3_count,
+    update_inventory);
+  input clk;
+  input rst;
+  input [1:0]product_sel;
+  input [5:0]cash;
+  output dispense;
+  output [5:0]product_cost;
+  output [5:0]balance;
+  output [3:0]prod1_count;
+  output [3:0]prod2_count;
+  output [3:0]prod3_count;
+  output update_inventory;
+
+  wire \<const0> ;
+  wire [5:0]balance;
+  wire [5:0]balance_OBUF;
+  wire \balance_OBUF[4]_inst_i_2_n_0 ;
+  wire \balance_OBUF[5]_inst_i_2_n_0 ;
+  wire [5:0]cash;
+  wire [5:1]cash_IBUF;
+  wire clk;
+  wire clk_IBUF;
+  wire clk_IBUF_BUFG;
+  wire dispense;
+  wire [3:0]prod1_count;
+  wire [3:0]prod1_count_OBUF;
+  wire [3:0]prod2_count;
+  wire [3:0]prod2_count_OBUF;
+  wire [3:0]prod3_count;
+  wire [3:0]prod3_count_OBUF;
+  wire [5:0]product_cost;
+  wire [5:1]product_cost_OBUF;
+  wire [1:0]product_sel;
+  wire [1:0]product_sel_IBUF;
+  wire rst;
+  wire rst_IBUF;
+  wire sufficient_cash;
+  wire update_inventory;
+  wire update_inventory_OBUF;
+
+  GND GND
+       (.G(\<const0> ));
+  OBUF \balance_OBUF[0]_inst 
+       (.I(balance_OBUF[0]),
+        .O(balance[0]));
+  OBUF \balance_OBUF[1]_inst 
+       (.I(balance_OBUF[1]),
+        .O(balance[1]));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT4 #(
+    .INIT(16'hE1F0)) 
+    \balance_OBUF[1]_inst_i_1 
+       (.I0(product_sel_IBUF[0]),
+        .I1(product_sel_IBUF[1]),
+        .I2(cash_IBUF[1]),
+        .I3(sufficient_cash),
+        .O(balance_OBUF[1]));
+  OBUF \balance_OBUF[2]_inst 
+       (.I(balance_OBUF[2]),
+        .O(balance[2]));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT5 #(
+    .INIT(32'hF20DFF00)) 
+    \balance_OBUF[2]_inst_i_1 
+       (.I0(cash_IBUF[1]),
+        .I1(product_sel_IBUF[0]),
+        .I2(product_sel_IBUF[1]),
+        .I3(cash_IBUF[2]),
+        .I4(sufficient_cash),
+        .O(balance_OBUF[2]));
+  OBUF \balance_OBUF[3]_inst 
+       (.I(balance_OBUF[3]),
+        .O(balance[3]));
+  LUT6 #(
+    .INIT(64'hCCC1333EFFFF0000)) 
+    \balance_OBUF[3]_inst_i_1 
+       (.I0(cash_IBUF[1]),
+        .I1(product_sel_IBUF[0]),
+        .I2(cash_IBUF[2]),
+        .I3(product_sel_IBUF[1]),
+        .I4(cash_IBUF[3]),
+        .I5(sufficient_cash),
+        .O(balance_OBUF[3]));
+  OBUF \balance_OBUF[4]_inst 
+       (.I(balance_OBUF[4]),
+        .O(balance[4]));
+  LUT6 #(
+    .INIT(64'h6A9A9565FFFF0000)) 
+    \balance_OBUF[4]_inst_i_1 
+       (.I0(\balance_OBUF[4]_inst_i_2_n_0 ),
+        .I1(product_sel_IBUF[1]),
+        .I2(product_sel_IBUF[0]),
+        .I3(cash_IBUF[3]),
+        .I4(cash_IBUF[4]),
+        .I5(sufficient_cash),
+        .O(balance_OBUF[4]));
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT5 #(
+    .INIT(32'h66626660)) 
+    \balance_OBUF[4]_inst_i_2 
+       (.I0(cash_IBUF[3]),
+        .I1(product_sel_IBUF[0]),
+        .I2(product_sel_IBUF[1]),
+        .I3(cash_IBUF[2]),
+        .I4(cash_IBUF[1]),
+        .O(\balance_OBUF[4]_inst_i_2_n_0 ));
+  OBUF \balance_OBUF[5]_inst 
+       (.I(balance_OBUF[5]),
+        .O(balance[5]));
+  LUT6 #(
+    .INIT(64'h699A9665FFFF0000)) 
+    \balance_OBUF[5]_inst_i_1 
+       (.I0(\balance_OBUF[5]_inst_i_2_n_0 ),
+        .I1(product_sel_IBUF[0]),
+        .I2(product_sel_IBUF[1]),
+        .I3(cash_IBUF[4]),
+        .I4(cash_IBUF[5]),
+        .I5(sufficient_cash),
+        .O(balance_OBUF[5]));
+  LUT6 #(
+    .INIT(64'h6630663062306220)) 
+    \balance_OBUF[5]_inst_i_2 
+       (.I0(product_sel_IBUF[1]),
+        .I1(cash_IBUF[4]),
+        .I2(cash_IBUF[3]),
+        .I3(product_sel_IBUF[0]),
+        .I4(cash_IBUF[1]),
+        .I5(cash_IBUF[2]),
+        .O(\balance_OBUF[5]_inst_i_2_n_0 ));
+  IBUF \cash_IBUF[0]_inst 
+       (.I(cash[0]),
+        .O(balance_OBUF[0]));
+  IBUF \cash_IBUF[1]_inst 
+       (.I(cash[1]),
+        .O(cash_IBUF[1]));
+  IBUF \cash_IBUF[2]_inst 
+       (.I(cash[2]),
+        .O(cash_IBUF[2]));
+  IBUF \cash_IBUF[3]_inst 
+       (.I(cash[3]),
+        .O(cash_IBUF[3]));
+  IBUF \cash_IBUF[4]_inst 
+       (.I(cash[4]),
+        .O(cash_IBUF[4]));
+  IBUF \cash_IBUF[5]_inst 
+       (.I(cash[5]),
+        .O(cash_IBUF[5]));
+  BUFG clk_IBUF_BUFG_inst
+       (.I(clk_IBUF),
+        .O(clk_IBUF_BUFG));
+  IBUF clk_IBUF_inst
+       (.I(clk),
+        .O(clk_IBUF));
+  OBUF dispense_OBUF_inst
+       (.I(update_inventory_OBUF),
+        .O(dispense));
+  inventory_manager inv_mgr
+       (.AR(rst_IBUF),
+        .CLK(clk_IBUF_BUFG),
+        .Q(prod1_count_OBUF),
+        .cash_IBUF(cash_IBUF),
+        .\prod2_count_reg[3]_0 (prod2_count_OBUF),
+        .\prod3_count_reg[3]_0 (prod3_count_OBUF),
+        .product_sel_IBUF(product_sel_IBUF),
+        .sufficient_cash(sufficient_cash),
+        .update_inventory_OBUF(update_inventory_OBUF));
+  OBUF \prod1_count_OBUF[0]_inst 
+       (.I(prod1_count_OBUF[0]),
+        .O(prod1_count[0]));
+  OBUF \prod1_count_OBUF[1]_inst 
+       (.I(prod1_count_OBUF[1]),
+        .O(prod1_count[1]));
+  OBUF \prod1_count_OBUF[2]_inst 
+       (.I(prod1_count_OBUF[2]),
+        .O(prod1_count[2]));
+  OBUF \prod1_count_OBUF[3]_inst 
+       (.I(prod1_count_OBUF[3]),
+        .O(prod1_count[3]));
+  OBUF \prod2_count_OBUF[0]_inst 
+       (.I(prod2_count_OBUF[0]),
+        .O(prod2_count[0]));
+  OBUF \prod2_count_OBUF[1]_inst 
+       (.I(prod2_count_OBUF[1]),
+        .O(prod2_count[1]));
+  OBUF \prod2_count_OBUF[2]_inst 
+       (.I(prod2_count_OBUF[2]),
+        .O(prod2_count[2]));
+  OBUF \prod2_count_OBUF[3]_inst 
+       (.I(prod2_count_OBUF[3]),
+        .O(prod2_count[3]));
+  OBUF \prod3_count_OBUF[0]_inst 
+       (.I(prod3_count_OBUF[0]),
+        .O(prod3_count[0]));
+  OBUF \prod3_count_OBUF[1]_inst 
+       (.I(prod3_count_OBUF[1]),
+        .O(prod3_count[1]));
+  OBUF \prod3_count_OBUF[2]_inst 
+       (.I(prod3_count_OBUF[2]),
+        .O(prod3_count[2]));
+  OBUF \prod3_count_OBUF[3]_inst 
+       (.I(prod3_count_OBUF[3]),
+        .O(prod3_count[3]));
+  OBUF \product_cost_OBUF[0]_inst 
+       (.I(\<const0> ),
+        .O(product_cost[0]));
+  OBUF \product_cost_OBUF[1]_inst 
+       (.I(product_cost_OBUF[1]),
+        .O(product_cost[1]));
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  LUT2 #(
+    .INIT(4'h1)) 
+    \product_cost_OBUF[1]_inst_i_1 
+       (.I0(product_sel_IBUF[1]),
+        .I1(product_sel_IBUF[0]),
+        .O(product_cost_OBUF[1]));
+  OBUF \product_cost_OBUF[2]_inst 
+       (.I(product_cost_OBUF[2]),
+        .O(product_cost[2]));
+  OBUF \product_cost_OBUF[3]_inst 
+       (.I(product_cost_OBUF[3]),
+        .O(product_cost[3]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \product_cost_OBUF[3]_inst_i_1 
+       (.I0(product_sel_IBUF[0]),
+        .O(product_cost_OBUF[3]));
+  OBUF \product_cost_OBUF[4]_inst 
+       (.I(product_cost_OBUF[2]),
+        .O(product_cost[4]));
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \product_cost_OBUF[4]_inst_i_1 
+       (.I0(product_sel_IBUF[0]),
+        .I1(product_sel_IBUF[1]),
+        .O(product_cost_OBUF[2]));
+  OBUF \product_cost_OBUF[5]_inst 
+       (.I(product_cost_OBUF[5]),
+        .O(product_cost[5]));
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \product_cost_OBUF[5]_inst_i_1 
+       (.I0(product_sel_IBUF[1]),
+        .I1(product_sel_IBUF[0]),
+        .O(product_cost_OBUF[5]));
+  IBUF \product_sel_IBUF[0]_inst 
+       (.I(product_sel[0]),
+        .O(product_sel_IBUF[0]));
+  IBUF \product_sel_IBUF[1]_inst 
+       (.I(product_sel[1]),
+        .O(product_sel_IBUF[1]));
+  IBUF rst_IBUF_inst
+       (.I(rst),
+        .O(rst_IBUF));
+  OBUF update_inventory_OBUF_inst
+       (.I(update_inventory_OBUF),
+        .O(update_inventory));
+endmodule
