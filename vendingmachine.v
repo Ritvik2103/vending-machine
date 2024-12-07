@@ -1,23 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 22.11.2024 11:07:44
-// Design Name: 
-// Module Name: vendingmachine
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
 
 module vendingmachine(clk, rst, product_sel, cash, dispense, product_cost,  balance, prod1_count, prod2_count, prod3_count, update_inventory);
