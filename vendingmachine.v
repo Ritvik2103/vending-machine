@@ -66,12 +66,7 @@ output  [3:0] prod1_count;   // Product 1 count
     assign selected_count = (product_sel == 2'b00) ? prod1_count :
                             (product_sel == 2'b01) ? prod2_count :
                                                      prod3_count;
-    /*always @(posedge clk)
-    begin
-    dispense <= sufficient_cash && (selected_count>0);
-    update_inventory <= dispense;
-    end*/
-    // Dispense logic
+
     
     assign dispense = sufficient_cash && (selected_count > 0);
     assign update_inventory = dispense;
