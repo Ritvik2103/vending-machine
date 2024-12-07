@@ -37,5 +37,7 @@ This project implements a digital vending machine using **Verilog HDL**. The des
 3. **inventory_manager.v**: Contains the verilog code for managing the vending machine inventory
 4. **product_cost_calculator.v**: Contains the verilog code for calculating cost of products in the vending machine
 5. **vendingmachine_tb.v**: Contains the verilog code for testbench to verify the design functionality 
-6. **vending_machine_constraints.xdc**: Contains constraints defined for the vending machine. 
+6. **vending_machine_constraints.xdc**: Contains constraints defined for the vending machine.
+7. **vending_machine**: Containts netlist information
+   
 
