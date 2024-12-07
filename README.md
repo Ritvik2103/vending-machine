@@ -1,46 +1,96 @@
-# Vending Machine
-This project implements a digital vending machine using **Verilog HDL**. The design includes multiple functional modules for managing item selection, payment processing, and item dispensing. 
+# Vending Machine Design
+
+This repository contains the **Verilog** implementation of a vending machine, built and tested using **Vivado**. The design supports three products with different costs and maintains inventory, cash balance, and dispense logic.
 
 ---
 
 ## Features
-- **Multi-Module Design**: Modular architecture for scalability and clarity.
-- **Item Selection**: Supports multiple item categories.
-- **Payment Processing**: Simulates cash acceptance.
-- **Item Dispensing**: Ensures accurate delivery of selected items.
-- **Error Handling**: Handles insufficient payment and out-of-stock scenarios.
 
---- 
+- **Product Selection:**
+  - Supports three products selected using a 2-bit signal (`product_sel`): 
+    - `00` for Product 1.
+    - `01` for Product 2.
+    - `10` for Product 3.
+  - Each product has a specific cost (`product_cost`).
 
-## Project Workflow
-1. **RTL Design**:
-   - Developed using **Verilog** with a hierarchical approach.
-   - Modularized design for easy extensibility.
+- **Cash Handling:**
+  - Verifies if sufficient cash is provided to purchase the selected product.
+  - Calculates the balance to return if sufficient cash is available.
 
-2. **Functional Verification**:
-   - Created a comprehensive **testbench** to verify the design functionality.
-   - Simulated using **Vivado** to ensure correctness under different scenarios.
+- **Inventory Management:**
+  - Tracks the count of each product (`prod1_count`, `prod2_count`, `prod3_count`).
+  - Updates the inventory when a product is dispensed.
+  - Initializes product counts to a default value of 10.
 
-3. **Synthesis**:
-   - Synthesized the design using **Vivado**, generating a netlist for implementation.
-   - Verified synthesis results for timing and resource utilization.
+- **Dispense Control:**
+  - Dispenses the product if:
+    - Sufficient cash is provided.
+    - The selected product is in stock.
 
-4. **Timing Analysis**:
-   - Conducted pre-layout **static timing analysis (STA)** to ensure timing closure.
-   - Focused on setup and hold checks for design reliability.
+- **Timing Constraints:**
+  - Proper constraints are applied to ensure synthesis and timing closure.
+  - Constraints are defined in the `vending_machine_constraints.xdc` file, included in the repository.
 
 ---
 
-## Files included
-1.  **vendingmachine.v**: Contains the verilog code for the vending machine  (top level module)
-2.  **cash_checker.v**: Contains the verilog code for verifying input cash
-3.  **inventory_manager.v**: Contains the verilog code for managing the vending machine inventory
-4.  **product_cost_calculator.v**: Contains the verilog code for calculating cost of products in the vending machine
-5.  **vendingmachine_tb.v**: Contains the verilog code for testbench to verify the design functionality 
-6.  **vending_machine_constraints.xdc**: Contains constraints defined for the vending machine.
-7.  **vending_machine**: Containts netlist information
-8.  **vending_machine_timing_report**: Contains timing report for the vending machine
-9.  **vending_machine_utilization_report**: Contains utilization report for the vending machine
+## Modules Overview
 
-   
+### 1. Vending Machine (`vendingmachine.v`)
+The top-level module that integrates:
+- **Cash Checker:** Validates sufficient cash and calculates the balance.
+- **Product Cost Calculator:** Assigns the cost of the selected product.
+- **Inventory Manager:** Tracks and updates inventory counts.
 
+### 2. Product Cost Calculator (`product_cost_calculator.v`)
+- Outputs the cost of the selected product:
+  - `00`: 10 units.
+  - `01`: 20 units.
+  - `10`: 40 units.
+
+### 3. Cash Checker (`cash_checker.v`)
+- Validates if the cash provided is sufficient for the selected product.
+- Outputs:
+  - `sufficient_cash`: Indicates if the cash provided meets the product cost.
+  - `balance`: Calculates the balance to return after the transaction.
+
+### 4. Inventory Manager (`inventory_manager.v`)
+- Tracks and updates the count of products.
+- Features:
+  - Initializes each product count to `10` on reset.
+  - Reduces the product count when a product is dispensed.
+
+---
+
+## Simulation and Verification
+
+### Testbench
+A testbench (`vendingmachine_tb.v`) is provided to verify functionality. It:
+- Stimulates the vending machine with various inputs.
+- Verifies:
+  - Proper product dispensing.
+  - Correct cash validation and balance calculation.
+  - Inventory management logic.
+
+---
+
+## Synthesis and STA
+
+- **Synthesis:**  
+  - The design was synthesized in Vivado to generate a gate-level netlist.
+  - Output netlist file: `vending_machine.dcp`.
+
+- **Reports:**
+  - **Timing Report:** Pre-layout timing results are stored in `vending_machine_timing_report.txt`.
+  - **Resource Utilization Report:** FPGA resource usage is documented in `vending_machine_utilization_report.txt`.
+
+- **Constraints:**
+  - Timing and design constraints are defined in `vending_machine_constraints.xdc`:
+    - Clock period.
+    - Input/output delays.
+    - Reset setup requirements.
+
+- **Pre-Layout STA:**  
+  - Timing analysis confirmed no setup or hold violations.
+  - Results verified for a clock period of `8.0 ns`.
+
+---
