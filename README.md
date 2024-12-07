@@ -39,5 +39,8 @@ This project implements a digital vending machine using **Verilog HDL**. The des
 5. **vendingmachine_tb.v**: Contains the verilog code for testbench to verify the design functionality 
 6. **vending_machine_constraints.xdc**: Contains constraints defined for the vending machine.
 7. **vending_machine**: Containts netlist information
+8. **vending_machine_timing_report**: Contains timing report for the vending machine
+9. **vending_machine_utilization_report**: Contains utilization report for the vending machine
+    
    
 
