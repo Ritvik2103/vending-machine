@@ -30,3 +30,6 @@ This project implements a digital vending machine using **Verilog HDL**. The des
    - Focused on setup and hold checks for design reliability.
 
 ---
+
+## Files included
+
