@@ -6,7 +6,7 @@ This project implements a digital vending machine using **Verilog HDL**. The des
 ## Features
 - **Multi-Module Design**: Modular architecture for scalability and clarity.
 - **Item Selection**: Supports multiple item categories.
-- **Payment Processing**: Simulates coin and note acceptance.
+- **Payment Processing**: Simulates cash acceptance.
 - **Item Dispensing**: Ensures accurate delivery of selected items.
 - **Error Handling**: Handles insufficient payment and out-of-stock scenarios.
 
@@ -32,9 +32,10 @@ This project implements a digital vending machine using **Verilog HDL**. The des
 ---
 
 ## Files included
-1. vendingmachine.v  
-2. cash_checker.v
-3. inventory_manager.v
-4. product_cost_calculator.v
-5. vendingmachine_tb.v
-6. vending_machine_constraints.xdc
+1. **vendingmachine.v**: Contains the verilog code for the vending machine  (top level module)
+2. **cash_checker.v**: Contains the verilog code for verifying input cash
+3. **inventory_manager.v**: Contains the verilog code for managing the vending machine inventory
+4. **product_cost_calculator.v**: Contains the verilog code for calculating cost of products in the vending machine
+5. **vendingmachine_tb.v**: Contains the verilog code for testbench to verify the design functionality 
+6. **vending_machine_constraints.xdc**: Contains constraints defined for the vending machine. 
+
