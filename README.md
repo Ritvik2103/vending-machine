@@ -32,15 +32,16 @@ This project implements a digital vending machine using **Verilog HDL**. The des
 ---
 
 ## Files included
-1. **vendingmachine.v**: Contains the verilog code for the vending machine  (top level module)
-2. **cash_checker.v**: Contains the verilog code for verifying input cash
-3. **inventory_manager.v**: Contains the verilog code for managing the vending machine inventory
-4. **product_cost_calculator.v**: Contains the verilog code for calculating cost of products in the vending machine
-5. **vendingmachine_tb.v**: Contains the verilog code for testbench to verify the design functionality 
-6. **vending_machine_constraints.xdc**: Contains constraints defined for the vending machine.
-7. **vending_machine**: Containts netlist information
-8. **vending_machine_timing_report**: Contains timing report for the vending machine
-9. **vending_machine_utilization_report**: Contains utilization report for the vending machine
+1.  **vendingmachine.v**: Contains the verilog code for the vending machine  (top level module)
+2.  **cash_checker.v**: Contains the verilog code for verifying input cash
+3.  **inventory_manager.v**: Contains the verilog code for managing the vending machine inventory
+4.  **product_cost_calculator.v**: Contains the verilog code for calculating cost of products in the vending machine
+5.  **vendingmachine_tb.v**: Contains the verilog code for testbench to verify the design functionality 
+6.  **vending_machine_constraints.xdc**: Contains constraints defined for the vending machine.
+7.  **vending_machine**: Containts netlist information
+8.  **vending_machine_timing_report**: Contains timing report for the vending machine
+9.  **vending_machine_utilization_report**: Contains utilization report for the vending machine
+10. **vending_machine_schematic**: Contains the synthesized schematic
     
    
 
