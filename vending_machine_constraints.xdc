@@ -1,12 +1,13 @@
+#create clock 
 create_clock -period 8 -name sys_clock [get_ports clk]
 
-#set clock latency
+#set clock source latency
 set_clock_latency -source 1.2 [get_clocks sys_clock]
 #set clock network latency
 set_clock_latency 0.3 [get_pins inv_mgr/CLK]
 
 
-#input delay for cash inputs 
+#minimum input delay for all inputs 
 set_input_delay -clock [get_clocks sys_clock] -min 0.04 [get_ports cash[5]]
 set_input_delay -clock [get_clocks sys_clock] -min 0.04 [get_ports cash[4]]
 set_input_delay -clock [get_clocks sys_clock] -min 0.04 [get_ports cash[3]]
@@ -17,6 +18,7 @@ set_input_delay -clock [get_clocks sys_clock] -min 0.04 [get_ports product_sel[0
 set_input_delay -clock [get_clocks sys_clock] -min 0.04 [get_ports product_sel[1]]
 set_input_delay -clock [get_clocks sys_clock] -min 0.04 [get_ports rst]
 
+#maximum input delay for all inputs
 set_input_delay -clock [get_clocks sys_clock] -max 0.2 [get_ports cash[5]]
 set_input_delay -clock [get_clocks sys_clock] -max 0.2 [get_ports cash[4]]
 set_input_delay -clock [get_clocks sys_clock] -max 0.2 [get_ports cash[3]]
@@ -27,7 +29,7 @@ set_input_delay -clock [get_clocks sys_clock] -max 0.2 [get_ports product_sel[0]
 set_input_delay -clock [get_clocks sys_clock] -max 0.2 [get_ports product_sel[1]]
 set_input_delay -clock [get_clocks sys_clock] -max 0.2 [get_ports rst]
 
-#set output delay
+#output delay for all outputs
 set_output_delay 0.5 [all_outputs]
 
 #group paths for timing
