@@ -41,7 +41,6 @@ This project implements a digital vending machine using **Verilog HDL**. The des
 7.  **vending_machine**: Containts netlist information
 8.  **vending_machine_timing_report**: Contains timing report for the vending machine
 9.  **vending_machine_utilization_report**: Contains utilization report for the vending machine
-10. **vending_machine_schematic**: Contains the synthesized schematic
-    
+
    
 
