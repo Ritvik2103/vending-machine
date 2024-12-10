@@ -7,17 +7,6 @@ set_clock_latency -source 1.2 [get_clocks sys_clock]
 set_clock_latency 0.3 [get_pins inv_mgr/CLK]
 
 
-#minimum input delay for all inputs 
-set_input_delay -clock [get_clocks sys_clock] -min 0.04 [get_ports cash[5]]
-set_input_delay -clock [get_clocks sys_clock] -min 0.04 [get_ports cash[4]]
-set_input_delay -clock [get_clocks sys_clock] -min 0.04 [get_ports cash[3]]
-set_input_delay -clock [get_clocks sys_clock] -min 0.04 [get_ports cash[2]]
-set_input_delay -clock [get_clocks sys_clock] -min 0.04 [get_ports cash[1]]
-set_input_delay -clock [get_clocks sys_clock] -min 0.04 [get_ports cash[0]]
-set_input_delay -clock [get_clocks sys_clock] -min 0.04 [get_ports product_sel[0]]
-set_input_delay -clock [get_clocks sys_clock] -min 0.04 [get_ports product_sel[1]]
-set_input_delay -clock [get_clocks sys_clock] -min 0.04 [get_ports rst]
-
 #maximum input delay for all inputs
 set_input_delay -clock [get_clocks sys_clock] -max 0.2 [get_ports cash[5]]
 set_input_delay -clock [get_clocks sys_clock] -max 0.2 [get_ports cash[4]]
